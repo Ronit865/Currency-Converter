@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { InputBox } from './components'
 import useCurrencyInfo from './hooks/useCurrencyInfo'
 import './App.css'
@@ -9,13 +9,12 @@ import LiquidGlass from 'liquid-glass-react'
 function App() {
 
   const [amount, setAmount] = useState(1)
-  const [from, setFrom] = useState("inr")
-  const [to, setTo] = useState("usd")
+  const [from, setFrom] = useState("usd")
+  const [to, setTo] = useState("inr")
   const [convertedAmount, setConvertedAmount] = useState("")
 
 
   const currencyInfo = useCurrencyInfo(from)
-  console.log("currencyInfo:", currencyInfo);
 
 
   const options = Object.keys(currencyInfo)
@@ -26,7 +25,11 @@ function App() {
     setConvertedAmount(amount)
     setAmount(convertedAmount)
   }
-
+useEffect(()=>{
+   if (currencyInfo[to]) {
+      setConvertedAmount(amount * currencyInfo[to])
+    }
+},[amount, from, to, currencyInfo])
   const convert = () => {
     setConvertedAmount(amount * currencyInfo[to])
   }
