@@ -25,11 +25,13 @@ function App() {
     setConvertedAmount(amount)
     setAmount(convertedAmount)
   }
+
 useEffect(()=>{
    if (currencyInfo[to]) {
       setConvertedAmount(amount * currencyInfo[to])
     }
 },[amount, from, to, currencyInfo])
+
   const convert = () => {
     setConvertedAmount(amount * currencyInfo[to])
   }
