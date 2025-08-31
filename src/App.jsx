@@ -4,7 +4,6 @@ import useCurrencyInfo from './hooks/useCurrencyInfo'
 import './App.css'
 import Swap from './assets/swap.png'
 import DotGrid from './DotGrid/DotGrid';
-import LiquidGlass from 'liquid-glass-react'
 
 function App() {
 
@@ -75,7 +74,8 @@ useEffect(()=>{
               <div className="relative w-full h-0.5">
                 <button
                   type="button"
-                  className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
+                  className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md text-white px-2 py-0.5"
+                  style={{background:"#5227FF"}}
                   onClick={swap}
                 >
                   <img src={Swap} alt="Swap" className="w-5 h-5 block" />
@@ -91,7 +91,8 @@ useEffect(()=>{
                   isAmountDisable
                 />
               </div>
-              <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+              <button type="submit" className="w-full text-white px-4 py-3 rounded-lg"
+              style={{background:"#5227FF"}}>
                 Convert {from.toUpperCase()} To {to.toUpperCase()}
               </button>
             </form>
