@@ -25,11 +25,11 @@ function App() {
     setAmount(convertedAmount)
   }
 
-useEffect(()=>{
-   if (currencyInfo[to]) {
+  useEffect(() => {
+    if (currencyInfo[to]) {
       setConvertedAmount(amount * currencyInfo[to])
     }
-},[amount, from, to, currencyInfo])
+  }, [amount, from, to, currencyInfo])
 
   const convert = () => {
     setConvertedAmount(amount * currencyInfo[to])
@@ -51,52 +51,56 @@ useEffect(()=>{
           returnDuration={1.5}
         />
       </div>
-        
-      <div className="w-full ">
-        {/* */}
-          <div className="w-full max-w-md mx-auto rounded-lg p-5 backdrop-blur-sm z-10  ">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                convert()
-              }}
-            >
-              <div className="w-full mb-1">
-                <InputBox
-                  label="From"
-                  amount={amount}
-                  currencyOptions={options}
-                  onCurrencyChange={(currency) => setFrom(currency)}
-                  onAmountChange={(amount) => setAmount(amount)}
-                  selectedCurrency={from}
-                />
-              </div>
-              <div className="relative w-full h-0.5">
-                <button
-                  type="button"
-                  className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md text-white px-2 py-0.5"
-                  style={{background:"#5227FF"}}
-                  onClick={swap}
-                >
-                  <img src={Swap} alt="Swap" className="w-5 h-5 block" />
-                </button>
-              </div>
-              <div className="w-full mt-1 mb-4">
-                <InputBox
-                  label="To"
-                  amount={convertedAmount}
-                  currencyOptions={options}
-                  onCurrencyChange={(currency) => setTo(currency)}
-                  selectedCurrency={to}
-                  isAmountDisable
-                />
-              </div>
-              <button type="submit" className="w-full text-white px-4 py-3 rounded-lg"
-              style={{background:"#5227FF"}}>
-                Convert {from.toUpperCase()} To {to.toUpperCase()}
+
+    <div className="w-full max-w-md relative z-20 px-4">
+      <div className="w-full mb-4">
+        <div className="w-fit mx-auto text-white px-4 py-3 rounded-lg z-10 cursor-pointer text-center"
+          style={{ background: "black"   }}>
+          Currency Convertor
+        </div>
+      </div>
+
+
+        <div className="w-full max-w-md mx-auto rounded-lg p-5 backdrop-blur-sm z-10  ">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              convert()
+            }}
+          >
+            <div className="w-full mb-1">
+              <InputBox
+                label="From"
+                amount={amount}
+                currencyOptions={options}
+                onCurrencyChange={(currency) => setFrom(currency)}
+                onAmountChange={(amount) => setAmount(amount)}
+                selectedCurrency={from}
+              />
+            </div>
+            <div className="relative w-full h-0.5">
+              <button
+                type="button"
+                className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md text-white px-2 py-0.5"
+                style={{ background: "#5227FF" }}
+                onClick={swap}
+              >
+                <img src={Swap} alt="Swap" className="w-5 h-5 block" />
               </button>
-            </form>
-          </div>
+            </div>
+            <div className="w-full mt-1 mb-2">
+              <InputBox
+                label="To"
+                amount={convertedAmount}
+                currencyOptions={options}
+                onCurrencyChange={(currency) => setTo(currency)}
+                selectedCurrency={to}
+                isAmountDisable
+              />
+            </div>
+
+          </form>
+        </div>
       </div>
     </div>
   );
