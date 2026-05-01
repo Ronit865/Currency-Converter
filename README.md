@@ -1,56 +1,93 @@
 # 💱 Currency Converter (React)
 
-A simple and fast currency converter built with React. This app allows users to convert between different currencies using real-time exchange rates.
+A production-ready currency converter web application built with **React + Vite**, designed for fast, accurate, and user-friendly currency conversions using real-time exchange rates.
 
 ---
 
-## 🚀 Features
+## 📖 Overview
 
-* 🌍 Convert between multiple currencies
-* 🔄 Real-time exchange rates (API-based)
-* ⚡ Fast and responsive UI
-* 📱 Mobile-friendly design
-* 🧠 Easy-to-use interface
+The Currency Converter allows users to convert amounts between different currencies instantly. It fetches live exchange rates from an external API and provides a seamless user experience with a responsive interface.
+
+---
+
+## 🔗 Live Application
+
+👉 https://Ronit865.github.io/Currency-Converter
+
+---
+
+## 🧠 Key Features
+
+* Real-time currency conversion
+* Supports multiple international currencies
+* Clean and intuitive UI
+* Fast rendering with Vite
+* Responsive design (mobile + desktop)
+* Error handling for API failures
+
+---
+
+## 🏗️ Architecture
+
+This project follows a **component-based architecture** using React.
+
+### Flow:
+
+1. User inputs amount
+2. Selects base and target currency
+3. API fetches exchange rate
+4. Conversion is calculated
+5. Result is displayed instantly
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **React**
-* **Vite**
-* **JavaScript (ES6+)**
-* **CSS**
-* **Exchange Rate API**
+| Category   | Technology        |
+| ---------- | ----------------- |
+| Frontend   | React             |
+| Build Tool | Vite              |
+| Language   | JavaScript (ES6)  |
+| Styling    | CSS               |
+| API        | Exchange Rate API |
+| Deployment | GitHub Pages      |
 
 ---
 
 ## 📂 Project Structure
 
-```
+```bash id="proj01"
 Currency-Converter/
 │
-├── public/             
-├── src/                
-│   ├── components/     
-│   ├── App.jsx         
-│   └── main.jsx        
+├── public/                 # Static assets
+├── src/                    # Application source code
+│   ├── components/         # Reusable UI components
+│   ├── App.jsx             # Root component
+│   ├── main.jsx            # Entry point
 │
-├── index.html
-├── package.json
-├── vite.config.js
+├── index.html              # HTML template
+├── package.json            # Dependencies & scripts
+├── vite.config.js          # Vite configuration
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Installation Guide
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/currency-converter.git
+### Prerequisites
 
-# Navigate into the project
-cd currency-converter
+* Node.js (>= 16)
+* npm or yarn
+
+### Steps
+
+```bash id="install01"
+# Clone repository
+git clone https://github.com/Ronit865/Currency-Converter.git
+
+# Navigate into project
+cd Currency-Converter
 
 # Install dependencies
 npm install
@@ -59,63 +96,112 @@ npm install
 npm run dev
 ```
 
+App will run on:
+👉 http://localhost:5173/
+
 ---
 
-## 🌐 Deployment (GitHub Pages)
+## 🌐 API Integration
 
-```bash
-# Build the project
+The application uses an external API to fetch live exchange rates.
+
+### Example Flow:
+
+```bash id="api01"
+GET /latest?base=USD
+```
+
+### Responsibilities:
+
+* Fetch exchange rate data
+* Handle API errors
+* Update UI dynamically
+
+---
+
+## 🔁 Core Logic (Conversion)
+
+```bash id="logic01"
+convertedAmount = amount × exchangeRate
+```
+
+---
+
+## 🚀 Deployment
+
+The project is deployed using **GitHub Pages**.
+
+### Steps:
+
+```bash id="deploy01"
 npm run build
-
-# Deploy to GitHub Pages
 npm run deploy
 ```
 
-Make sure your `package.json` includes:
+### Configuration:
 
-```json
-"homepage": "https://your-username.github.io/currency-converter"
+```json id="deploy02"
+"homepage": "https://Ronit865.github.io/Currency-Converter"
 ```
 
 ---
 
-## 📸 Screenshots
+## 🧪 Testing
 
-*Add screenshots here to showcase your UI*
+Currently, manual testing is implemented:
 
----
+* Input validation
+* API response handling
+* UI responsiveness
 
-## 🔗 Live Demo
-
-https://your-username.github.io/currency-converter
-
----
-
-## 🧩 Future Improvements
-
-* 🔍 Searchable currency dropdown
-* 📊 Historical exchange rate charts
-* 🌙 Dark mode
-* 💾 Save favorite currencies
+📌 Future scope: Add unit testing with Jest or React Testing Library
 
 ---
 
-## 🤝 Contributing
+## ⚠️ Error Handling
 
-1. Fork the repo
-2. Create a new branch (`feature/new-feature`)
+* Invalid user input (empty/negative values)
+* API request failures
+* Network issues
+
+Fallback mechanisms ensure app stability.
+
+---
+
+## 🔮 Future Enhancements
+
+* Currency search & autocomplete
+* Historical data visualization (charts)
+* Dark mode
+* Offline caching
+* Multi-language support
+
+---
+
+## 🤝 Contribution Guidelines
+
+1. Fork the repository
+2. Create a branch (`feature/feature-name`)
 3. Commit changes
-4. Push and open a Pull Request
+4. Push to your fork
+5. Create a Pull Request
 
 ---
 
 ## 📄 License
 
-MIT License
+This project is licensed under the MIT License.
 
 ---
 
 ## 👨‍💻 Author
 
-Your Name
-https://github.com/your-username
+**Ronit865**
+GitHub: https://github.com/Ronit865
+
+---
+
+## 🙌 Acknowledgements
+
+* Exchange Rate API providers
+* React & Vite communities
